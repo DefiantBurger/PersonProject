@@ -8,7 +8,7 @@ public class Main {
 		Person Jack = John.adopt("Jack");
 		Time.advanceYear(30);
 		Person Cathy = Jack.adopt("Cathy");
-		Time.advanceYear(30);
+		Time.advanceYear(31);
 		Person Liam = Cathy.adopt("Liam");
 		System.out.println(John.bankAccount.Balance);
 	}
