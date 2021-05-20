@@ -7,6 +7,7 @@ public class Person {
 	BankAccount bankAccount;
 	Job job;
 	Person marriedto;
+	boolean alive;
 	ArrayList<Person> children = new ArrayList<>();
 	public static ArrayList<Person> people = new ArrayList<>();
 	
@@ -15,6 +16,7 @@ public class Person {
 		this.age = age;
 		this.bankAccount = new BankAccount();
 		this.job = new Job("Unemployed");
+		this.alive = true;
 		people.add(this);
 	}
 	
@@ -35,15 +37,21 @@ public class Person {
 		this.marriedto = person;
 	}
 	
-	public void haveChild(String name) throws NoPartner, InvalidJobType {
-		if (!(this.marriedto == null)) throw new NoPartner();
-		this.children.add(new Person(name, 0));
-	}
-	
-	public Person adopt(String name) throws InvalidJobType {
+	public Person haveChild(String name) throws NoPartner, InvalidJobType {
+		if (this.marriedto == null) throw new NoPartner();
 		Person Kid = new Person(name, 0);
 		this.children.add(Kid);
 		return Kid;
+	}
+	
+	public Person adopt(String name) throws InvalidJobType {
+		Person Kid = new Person(name, (int) Math.floor(Math.random()*18));
+		this.children.add(Kid);
+		return Kid;
+	}
+	
+	public void die() {
+		this.alive = false;
 	}
 
 }

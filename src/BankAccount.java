@@ -150,10 +150,12 @@ public class BankAccount {
 		} else if (person.job.income <= 10000) {
 			chance = 0;
 		} else {
-			chance = 0.755062 * customLog(18.9, person.job.income/10000);
+			chance = 0.755062 * customLog(18.9, person.job.income/10000.0);
 		}
+		
+		if (amount > (80 - person.age) * person.job.income) chance = 0;
 
-		if (Math.random() <= chance) {
+		if (Math.random() < chance) {
 			this.deposit(amount);
 		}
 	}

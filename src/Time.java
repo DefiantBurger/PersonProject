@@ -6,17 +6,13 @@ public class Time {
             p.bankAccount.interest();
             p.job.raise(1);
             p.age += 1;
+            if (Math.random() <= 0.0008 * Math.pow(1.06, p.age)) p.die();
         }
     }
 
     public static void advanceYear(int years) throws InvalidDepositAmount, BankAccountLimitSurpassed, ImpossibleUpgrade {
-        for (Person p : Person.people) {
-            for (int i = 0; i < years; i++) {
-                p.bankAccount.deposit(p.job.income);
-                p.bankAccount.interest();
-                p.job.raise(0.5);
-                p.age += 1;
-            }
+        for (int i = 0; i < years; i++) {
+            advanceYear();
         }
     }
 

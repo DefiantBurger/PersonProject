@@ -5,8 +5,6 @@ public class Main {
 		
 		Person John = new Person("John", 30);
 		John.hire("High School Teacher");
-		System.out.println(John.bankAccount.Balance);
-		John.bankAccount.loan(John, 10000);
-		System.out.println(John.bankAccount.Balance);
+		Time.advanceYear(10);
 	}
 }
