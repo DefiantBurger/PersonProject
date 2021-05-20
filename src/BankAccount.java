@@ -25,7 +25,7 @@ public class BankAccount {
 		this.Balance -= amount;
 	}
 	
-	public void withdrawAll() throws Exception {
+	public void withdrawAll() {
 		this.Balance = 0;
 	}
 	
@@ -150,7 +150,7 @@ public class BankAccount {
 		} else if (person.job.income <= 10000) {
 			chance = 0;
 		} else {
-			chance = (int) (0.755062 * customLog(18.9, person.job.income));
+			chance = (int) (0.755062 * customLog(18.9, person.job.income/10000));
 		}
 
 		if (Math.random() <= chance) {
