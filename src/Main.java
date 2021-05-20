@@ -4,12 +4,9 @@ public class Main {
 		generate.all();
 		
 		Person John = new Person("John", 30);
-		John.hire("Mob Boss");
-		Person Jack = John.adopt("Jack");
-		Time.advanceYear(31);
-		Person Cathy = Jack.adopt("Cathy");
-		Time.advanceYear(31);
-		Person Liam = Cathy.adopt("Liam");
+		John.hire("High School Teacher");
+		System.out.println(John.bankAccount.Balance);
+		John.bankAccount.loan(John, 10000);
 		System.out.println(John.bankAccount.Balance);
 	}
 }
