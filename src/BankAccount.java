@@ -144,13 +144,13 @@ public class BankAccount {
 	public void loan(Person person, double amount) throws BankAccountLimitSurpassed, InvalidDepositAmount, ImpossibleUpgrade, InvalidLoanAmount {
 		if (amount <= 0 || 10000000 < amount) throw new InvalidLoanAmount(amount);
 
-		int chance;
+		double chance;
 		if (person.job.income > 500000) {
 			chance = 1;
 		} else if (person.job.income <= 10000) {
 			chance = 0;
 		} else {
-			chance = (int) (0.755062 * customLog(18.9, person.job.income/10000));
+			chance = 0.755062 * customLog(18.9, person.job.income/10000);
 		}
 
 		if (Math.random() <= chance) {
