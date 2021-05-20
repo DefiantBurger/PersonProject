@@ -5,6 +5,7 @@ public class Person {
 	String name;
 	int age;
 	BankAccount bankAccount;
+	Game game;
 	Job job;
 	Person marriedto;
 	boolean alive;
@@ -18,6 +19,7 @@ public class Person {
 		this.job = new Job("Unemployed");
 		this.alive = true;
 		people.add(this);
+		this.game = new Game();
 	}
 	
 	public void hire(String jobname) throws InvalidJobType {
